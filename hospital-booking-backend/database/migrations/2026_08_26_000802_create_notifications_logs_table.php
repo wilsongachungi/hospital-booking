@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('notifications_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('type'); // email, sms, push
+            $table->string('subject');
+            $table->text('message');
+            $table->timestamp('sent_at')->nullable();
             $table->timestamps();
         });
     }

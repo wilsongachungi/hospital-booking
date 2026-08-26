@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('doctor_time_offs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('doctor_profile_id')->constrained()->onDelete('cascade');
+            $table->dateTime('start_datetime');
+            $table->dateTime('end_datetime');
+            $table->string('reason')->nullable();
             $table->timestamps();
         });
     }

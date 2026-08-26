@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('doctor_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+       Schema::create('doctor_profiles', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('department_id')->constrained()->onDelete('cascade');
+        $table->string('qualification');
+        $table->integer('experience_years');
+        $table->decimal('consultation_fee', 10, 2);
+        $table->text('bio')->nullable();
+        $table->timestamps();
+    });
     }
 
     /**
