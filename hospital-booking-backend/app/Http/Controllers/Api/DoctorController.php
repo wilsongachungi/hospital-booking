@@ -36,7 +36,7 @@ class DoctorController extends Controller
     /**
      * Display a specific doctor's profile along with schedules and reviews.
      */
-    public function show($id)
+    public function show(int $id)
     {
         $doctor = DoctorProfile::with([
             'user:id,name,email,phone',
