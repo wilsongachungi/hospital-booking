@@ -105,6 +105,20 @@ class AuthController extends Controller
         ], 201);
     }
 
+    public function users(Request $request)
+    {
+        $query = User::select('id', 'name', 'email', 'phone', 'role', 'created_at');
+
+        // Optional role filtering
+        if ($request->has('role') && $request->role !== 'all') {
+            $query->where('role', $request->role);
+        }
+
+        $users = $query->latest()->get();
+
+        return response()->json($users);
+    }
+
     /**
      * Login User (Email or Phone).
      */

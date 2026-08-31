@@ -160,3 +160,5 @@ test('a patient can cancel an appointment', function () {
     'status' => 'cancelled',
   ]);
 });
+
+
