@@ -16,6 +16,7 @@ class PatientProfile extends Model
         'date_of_birth',
         'gender',
         'blood_group',
+        'address',
         'medical_history',
         'emergency_contact',
     ];

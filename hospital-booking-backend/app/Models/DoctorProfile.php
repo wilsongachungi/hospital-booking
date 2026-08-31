@@ -13,9 +13,12 @@ class DoctorProfile extends Model
     protected $fillable = [
         'user_id',
         'department_id',
+        'specialization',
         'qualification',
         'experience_years',
         'consultation_fee',
+        'biography',
+        'is_available',
         'bio',
     ];
 

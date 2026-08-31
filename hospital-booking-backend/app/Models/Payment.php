@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Payment extends Model
 {
@@ -11,13 +11,15 @@ class Payment extends Model
 
     protected $fillable = [
         'appointment_id',
-        'amount',
+        'checkout_request_id',
         'payment_method',
-        'transaction_reference',
+        'amount',
         'status',
+        'mpesa_receipt_number',
+        'result_desc',
     ];
 
-    public function appointment(): BelongsTo
+    public function appointment()
     {
         return $this->belongsTo(Appointment::class);
     }
